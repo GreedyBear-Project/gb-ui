@@ -4,7 +4,7 @@ import { Spinner } from "reactstrap";
 
 import ErrorAlert from "../alerts/ErrorAlert";
 
-function LoadingBoundary({ loading = false, error = null, size = "md", render, renderError = ErrorAlert }) {
+function LoadingBoundary({ loading = false, error = null, size = "md", render, renderError = ErrorAlert, }) {
   // this is required due to a bug in the axios-hooks library which
   // shows this string even if the request was successful
   let showError = false;

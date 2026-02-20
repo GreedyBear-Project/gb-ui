@@ -10,7 +10,7 @@ import Loader from "../containers/Loader";
 export default function AsyncSelect({
   url,
   selectorFn = (x) => x,
-  mapFn = (x) => ({ label: x.id, value: x.id }),
+  mapFn = (x) => ({ label: x.id, value: x.id, }),
   onClear = undefined,
   ...selectProps
 }) {

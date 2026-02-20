@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import ErrorAlert from "../alerts/ErrorAlert";
 
-function Loader({ loading, error = null, render, renderError = ErrorAlert, size = "md" }) {
+function Loader({ loading, error = null, render, renderError = ErrorAlert, size = "md", }) {
   return (
     <>
       {loading && (

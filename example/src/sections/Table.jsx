@@ -10,8 +10,8 @@ import {
   SelectOptionsFilter,
   DataTable,
   useDataTable,
-  TableHintIcon,
-} from "@greedybear/gb-ui";
+  TableHintIcon
+} from "@certego/certego-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 
@@ -35,13 +35,13 @@ const columns = [
     Filter: SelectOptionsFilter,
     selectOptions: ["true", "false"],
     disableSortBy: true,
-    Cell: ({ value }) => <BooleanIcon truthy={value} />,
+    Cell: ({ value, }) => <BooleanIcon truthy={value} />,
     maxWidth: 40,
   },
 ];
 const initialState = {
   pageSize: 5,
-  sortBy: [{ id: "id", desc: false }],
+  sortBy: [{ id: "id", desc: false, }],
 };
 
 export default function Table(props) {
@@ -64,7 +64,7 @@ export default function Table(props) {
         enableFlexLayout: true,
         enableExpanded: true,
       },
-      SubComponent: ({ row }) => (
+      SubComponent: ({ row, }) => (
         <pre className="text-gradient">
           {JSON.stringify(row.original, null, 4)}
         </pre>

@@ -13,7 +13,7 @@ import {
   MdDelete,
   MdInfo,
   MdModeEdit,
-  MdVisibility,
+  MdVisibility
 } from "react-icons/md";
 import { Form, Formik } from "formik";
 
@@ -25,8 +25,8 @@ import {
   PopupFormButton,
   ScrollToTopButton,
   SocialShareBtn,
-  SyncButton,
-} from "@greedybear/gb-ui";
+  SyncButton
+} from "@certego/certego-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 
@@ -116,9 +116,9 @@ export default function Buttons(props) {
               titlePlacement="top"
               popOverPlacement="top"
               Icon={MdModeEdit}
-              Form={({ onFormSubmit }) => (
+              Form={({ onFormSubmit, }) => (
                 <Formik
-                  initialValues={{ name: "" }}
+                  initialValues={{ name: "", }}
                   onSubmit={onFormSubmit}
                 >
                   {(formik) => (
@@ -165,7 +165,7 @@ export default function Buttons(props) {
             <Col className="d-flex-center flex-column">
               <SocialShareBtn
                 id="social-share-btn-example-1"
-                url="https://github.com/GreedyBear-Project/gb-ui"
+                url="https://github.com/certego/certego-ui"
                 popoverTrigger="hover"
                 popoverPlacement="left"
               />
@@ -174,7 +174,7 @@ export default function Buttons(props) {
             <Col className="d-flex-center flex-column">
               <SocialShareBtn
                 id="social-share-btn-example-2"
-                url="https://github.com/GreedyBear-Project/gb-ui"
+                url="https://github.com/certego/certego-ui"
                 popoverPlacement="top"
                 onlyIcon
               />
@@ -183,7 +183,7 @@ export default function Buttons(props) {
             <Col className="d-flex-center flex-column">
               <SocialShareBtn
                 id="social-share-btn-example-3"
-                url="https://github.com/GreedyBear-Project/gb-ui"
+                url="https://github.com/certego/certego-ui"
                 popoverTrigger="click"
                 popoverPlacement="top"
               />
