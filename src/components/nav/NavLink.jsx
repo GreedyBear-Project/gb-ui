@@ -14,7 +14,7 @@ const type2ClassnameMap = {
 };
 
 // component
-export default function NavLink({ type, children, className, ...props }) {
+export default function NavLink({ type = "default", children, className = null, ...props }) {
   return (
     <RSNavLink
       tag={RRNavLink}
@@ -43,7 +43,3 @@ NavLink.propTypes = {
   ]),
 };
 
-NavLink.defaultProps = {
-  className: null,
-  type: "default",
-};

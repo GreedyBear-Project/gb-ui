@@ -7,8 +7,13 @@ import { MdClear } from "react-icons/md";
 import Select from "./Select";
 import Loader from "../containers/Loader";
 
-export default function AsyncSelect(props) {
-  const { url, selectorFn, mapFn, onClear, ...selectProps } = props;
+export default function AsyncSelect({
+  url,
+  selectorFn = (x) => x,
+  mapFn = (x) => ({ label: x.id, value: x.id }),
+  onClear = undefined,
+  ...selectProps
+}) {
   // API
   const [{ data, loading, error, }] = useAxios(url);
   const choices = React.useMemo(
@@ -34,15 +39,6 @@ export default function AsyncSelect(props) {
     />
   );
 }
-
-AsyncSelect.defaultProps = {
-  selectorFn: (x) => x,
-  mapFn: (x) => ({
-    label: x.id,
-    value: x.id,
-  }),
-  onClear: undefined,
-};
 
 AsyncSelect.propTypes = {
   url: PropTypes.string.isRequired,

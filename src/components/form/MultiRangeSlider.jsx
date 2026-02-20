@@ -25,7 +25,7 @@ const sliderStyle = {
 export default function MultiRangeSlider({
   domain,
   defaultValues,
-  disabled,
+  disabled = false,
   onChange,
 }) {
   const [min, max] = domain;
@@ -146,6 +146,4 @@ MultiRangeSlider.propTypes = {
   disabled: PropTypes.bool,
 };
 
-MultiRangeSlider.defaultProps = {
-  disabled: false,
-};
+

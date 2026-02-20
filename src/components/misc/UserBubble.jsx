@@ -6,8 +6,7 @@ import classnames from "classnames";
  * @type {component}
  * @param props
  */
-export default function UserBubble(props) {
-  const { userInfo, size, className, ...elProps } = props;
+export default function UserBubble({ userInfo, size = "sm", className = undefined, ...elProps }) {
 
   const userInitials =
     userInfo?.first_name?.charAt(0).concat(userInfo?.last_name?.charAt(0)) ||
@@ -45,7 +44,3 @@ UserBubble.propTypes = {
   userInfo: PropTypes.object.isRequired,
 };
 
-UserBubble.defaultProps = {
-  size: "sm",
-  className: undefined,
-};

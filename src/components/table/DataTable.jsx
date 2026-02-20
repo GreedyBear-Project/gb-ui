@@ -19,12 +19,12 @@ import Paginator from "./Paginator";
  * Suitable when data is already available client side. Thus, pagination/filtering/sorting can be performed client side too.
  */
 function DataTable({
-  config: userConfig,
-  onSelectedRowChange,
-  SubComponent,
-  tableProps,
-  tableEmptyNode,
-  TableBodyComponent,
+  config: userConfig = defaultConfig,
+  onSelectedRowChange = undefined,
+  SubComponent = undefined,
+  tableProps = undefined,
+  tableEmptyNode = "No Data",
+  TableBodyComponent = undefined,
   ...rest
 }) {
   // merge user specified config with default config
@@ -193,15 +193,6 @@ DataTable.propTypes = {
   tableProps: PropTypes.object,
   tableEmptyNode: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   TableBodyComponent: PropTypes.func,
-};
-
-DataTable.defaultProps = {
-  config: defaultConfig,
-  onSelectedRowChange: undefined,
-  SubComponent: undefined,
-  tableProps: undefined,
-  tableEmptyNode: "No Data",
-  TableBodyComponent: undefined,
 };
 
 export default DataTable;

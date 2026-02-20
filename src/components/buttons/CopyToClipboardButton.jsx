@@ -5,9 +5,8 @@ import { HiClipboardCopy } from "react-icons/hi";
 
 import useCopyToClipboard from "react-use/lib/useCopyToClipboard";
 
-function CopyToClipboardButton(props) {
+function CopyToClipboardButton({ id, text, children = null, tooltip = null, showOnHover = false, ...rest }) {
   // props
-  const { id, text, children, tooltip, showOnHover, ...rest } = props;
 
   // local state
   const [copied, setCopied] = React.useState(false);
@@ -59,12 +58,6 @@ CopyToClipboardButton.propTypes = {
   children: PropTypes.node,
   tooltip: PropTypes.object,
   showOnHover: PropTypes.bool,
-};
-
-CopyToClipboardButton.defaultProps = {
-  children: null,
-  tooltip: null,
-  showOnHover: false,
 };
 
 export default CopyToClipboardButton;

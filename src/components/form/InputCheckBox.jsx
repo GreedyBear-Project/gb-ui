@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import { Input, FormGroup, FormFeedback, Label } from "reactstrap";
 
-function InputCheckBox(props) {
+function InputCheckBox({ label, name, valid = true, feedback = null, ...rest }) {
   // props
-  const { label, name, valid, feedback, ...rest } = props;
 
   return (
     <FormGroup check>
@@ -31,11 +30,6 @@ InputCheckBox.propTypes = {
   name: PropTypes.string.isRequired,
   valid: PropTypes.bool,
   feedback: PropTypes.string,
-};
-
-InputCheckBox.defaultProps = {
-  valid: true,
-  feedback: null,
 };
 
 export default InputCheckBox;

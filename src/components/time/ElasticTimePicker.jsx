@@ -35,9 +35,7 @@ function intervalToTime(ti) {
  *   />
  * ```
  */
-function ElasticTimePicker(props) {
-  const { onChange, size, defaultSelected, intervals, showInfinity, ...rest } =
-    props;
+function ElasticTimePicker({ onChange, size = "sm", defaultSelected = "24h", intervals = Object.keys(TIME_INTERVALS), showInfinity = false, ...rest }) {
 
   // state
   const [selected, setSelected] = React.useState(defaultSelected);
@@ -85,13 +83,6 @@ function ElasticTimePicker(props) {
     </ButtonGroup>
   );
 }
-
-ElasticTimePicker.defaultProps = {
-  size: "sm",
-  defaultSelected: "24h",
-  intervals: Object.keys(TIME_INTERVALS),
-  showInfinity: false,
-};
 
 ElasticTimePicker.propTypes = {
   onChange: PropTypes.func.isRequired,

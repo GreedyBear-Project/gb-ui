@@ -11,8 +11,7 @@ const sizeToWidth = {
   xl: 12,
 };
 
-function ErrorAlert(props) {
-  const { error, size, className, ...rest } = props;
+function ErrorAlert({ error, size = "md", className = undefined, ...rest }) {
 
   return (
     <Alert
@@ -41,11 +40,6 @@ ErrorAlert.propTypes = {
   error: PropTypes.object.isRequired,
   className: PropTypes.string,
   size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
-};
-
-ErrorAlert.defaultProps = {
-  className: undefined,
-  size: "md",
 };
 
 export default ErrorAlert;

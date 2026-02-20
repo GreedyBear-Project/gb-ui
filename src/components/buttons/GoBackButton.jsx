@@ -31,7 +31,7 @@ GoBackIcon.propTypes = {
   onlyIcon: PropTypes.bool.isRequired,
 };
 
-export default function GoBackButton({ onlyIcon, ...restProps }) {
+export default function GoBackButton({ onlyIcon = true, ...restProps }) {
   // router
   const navigate = useNavigate();
 
@@ -73,6 +73,4 @@ GoBackButton.propTypes = {
   onlyIcon: PropTypes.bool,
 };
 
-GoBackButton.defaultProps = {
-  onlyIcon: true,
-};
+

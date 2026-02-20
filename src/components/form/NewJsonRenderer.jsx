@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import ReactJson from "react-json-view";
 
-function NewJsonRenderer({ jsonData, ...rest }) {
+function NewJsonRenderer({ jsonData = null, ...rest }) {
   return (
       <ReactJson
         name={null}
@@ -19,10 +19,6 @@ function NewJsonRenderer({ jsonData, ...rest }) {
 
 NewJsonRenderer.propTypes = {
   jsonData: PropTypes.object,
-};
-
-NewJsonRenderer.defaultProps = {
-  jsonData: null,
 };
 
 export default React.memo(NewJsonRenderer);
