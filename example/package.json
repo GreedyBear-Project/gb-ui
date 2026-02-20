@@ -3,16 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
-    "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
-    "test": "node ../node_modules/vitest/vitest.mjs run",
-    "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
+    "start": "node ../node_modules/vite/bin/vite.js",
+    "build": "node ../node_modules/vite/bin/vite.js build",
+    "test": "node ../node_modules/vitest/vitest.mjs run --config vitest.config.mjs"
   },
   "dependencies": {
     "@greedybear/gb-ui": "file:..",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
-    "react-scripts": "file:../node_modules/react-scripts"
+    "vite": "file:../node_modules/vite"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"
