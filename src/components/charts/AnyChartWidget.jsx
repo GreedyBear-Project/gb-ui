@@ -11,7 +11,7 @@ export default function AnyChartWidget({
   url,
   accessorFnAggregation,
   componentsFn,
-  composedChartProps,
+  composedChartProps = undefined,
 }) {
   // consume zustand store
   const { range, dateFormat, } = useTimePickerStore();
@@ -67,6 +67,3 @@ AnyChartWidget.propTypes = {
   composedChartProps: PropTypes.object,
 };
 
-AnyChartWidget.defaultProps = {
-  composedChartProps: undefined,
-};

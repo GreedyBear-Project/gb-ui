@@ -4,18 +4,17 @@ import { Button, Popover, UncontrolledTooltip, PopoverBody } from "reactstrap";
 import { nanoid } from "nanoid";
 import { IoMdClose } from "react-icons/io";
 
-export default function PopupFormButton(props) {
+export default function PopupFormButton({
+  id = undefined,
+  title = null,
+  titlePlacement = "right-start",
+  popOverPlacement = "right-start",
+  Icon,
+  Form,
+  onFormSuccess = () => null,
+  ...rest
+}) {
   // props
-  const {
-    id,
-    title,
-    titlePlacement,
-    popOverPlacement,
-    Icon,
-    Form,
-    onFormSuccess,
-    ...rest
-  } = props;
 
   // state
   const [popoverOpen, setPopoverOpen] = React.useState(false);
@@ -67,10 +66,4 @@ PopupFormButton.propTypes = {
   onFormSuccess: PropTypes.func,
 };
 
-PopupFormButton.defaultProps = {
-  id: undefined,
-  onFormSuccess: () => null,
-  title: null,
-  titlePlacement: "right-start",
-  popOverPlacement: "right-start",
-};
+

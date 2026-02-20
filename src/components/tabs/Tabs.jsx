@@ -8,9 +8,7 @@ import classnames from "classnames";
  * @type {component}
  * @param props
  */
-function Tabs(props) {
-  const { tabTitles, renderables, defaultTab, overflow, className, ...rest } =
-    props;
+function Tabs({ tabTitles, renderables, defaultTab = 0, overflow = false, className = undefined, ...rest }) {
 
   const [activeTab, setActiveTab] = React.useState(defaultTab);
 
@@ -48,12 +46,6 @@ function Tabs(props) {
     </>
   );
 }
-
-Tabs.defaultProps = {
-  defaultTab: 0,
-  overflow: false,
-  className: undefined,
-};
 
 Tabs.propTypes = {
   tabTitles: PropTypes.arrayOf(

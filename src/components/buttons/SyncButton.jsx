@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import { UncontrolledTooltip, Spinner } from "reactstrap";
 import { MdSync } from "react-icons/md";
 
-export default function SyncButton(props) {
-  const { onClick, className, title, ...restProps } = props;
+export default function SyncButton({ onClick, className = null, title = "Sync with server", ...restProps }) {
 
   // state
   const [wasClicked, setClicked] = React.useState(false);
@@ -40,7 +39,3 @@ SyncButton.propTypes = {
   title: PropTypes.string,
 };
 
-SyncButton.defaultProps = {
-  className: null,
-  title: "Sync with server",
-};

@@ -17,17 +17,16 @@ import useFuzzySearch from "../../hooks/useFuzzySearch";
 const SCROLL_STEP = 10;
 
 // Component
-export default function InfiniteScrollList(props) {
+export default function InfiniteScrollList({
+  data,
+  showSearch = true,
+  searchableKeys = [],
+  renderListItem,
+  genListKeyProp,
+  children = null,
+  ...rest
+}) {
   // props
-  const {
-    data,
-    showSearch,
-    searchableKeys,
-    renderListItem,
-    genListKeyProp,
-    children,
-    ...rest
-  } = props;
 
   // memo
   const keys = React.useMemo(
@@ -126,8 +125,3 @@ InfiniteScrollList.propTypes = {
   children: PropTypes.node,
 };
 
-InfiniteScrollList.defaultProps = {
-  showSearch: true,
-  searchableKeys: [],
-  children: null,
-};

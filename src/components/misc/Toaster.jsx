@@ -16,10 +16,10 @@ function getIcon(color) {
 
 export default function Toaster({
   header,
-  body,
-  color,
-  timeout,
-  showToggle,
+  body = null,
+  color = "info",
+  timeout = 4000,
+  showToggle = false,
   ...props
 }) {
   // state
@@ -53,9 +53,3 @@ Toaster.propTypes = {
   showToggle: PropTypes.bool,
 };
 
-Toaster.defaultProps = {
-  body: null,
-  color: "info",
-  timeout: 4000,
-  showToggle: false,
-};

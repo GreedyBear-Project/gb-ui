@@ -4,8 +4,7 @@ import { Collapse } from "reactstrap";
 
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
-export default function Details(props) {
-  const { title, children, clickCoversRegion, ...rest } = props;
+export default function Details({ title = "Toggle expand", children, clickCoversRegion = false, ...rest }) {
 
   // local state
   const [isOpen, setIsOpen] = React.useState(true);
@@ -57,7 +56,3 @@ Details.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-Details.defaultProps = {
-  clickCoversRegion: false,
-  title: "Toggle expand",
-};

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import LoadingBar from "react-top-loading-bar";
 
-export default function AxiosLoadingBar({ axiosInstance, color, ...rest }) {
+export default function AxiosLoadingBar({ axiosInstance, color = "#9441b7", ...rest }) {
   // ref
   const ref = React.useRef(null);
 
@@ -41,6 +41,3 @@ AxiosLoadingBar.propTypes = {
   color: PropTypes.string,
 };
 
-AxiosLoadingBar.defaultProps = {
-  color: "#9441b7",
-};

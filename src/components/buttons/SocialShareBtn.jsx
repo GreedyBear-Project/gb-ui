@@ -14,12 +14,12 @@ import CopyToClipboardButton from "./CopyToClipboardButton";
 
 
 export default function SocialShareBtn({
-  id,
+  id = undefined,
   url,
-  onlyIcon,
-  btnProps,
-  popoverTrigger,
-  popoverPlacement,
+  onlyIcon = false,
+  btnProps = null,
+  popoverTrigger = "hover",
+  popoverPlacement = "bottom-end",
   ...shareProps
 }) {
 
@@ -66,10 +66,4 @@ SocialShareBtn.propTypes = {
   popoverPlacement: PropTypes.string,
 };
 
-SocialShareBtn.defaultProps = {
-  id: undefined,
-  onlyIcon: false,
-  btnProps: null,
-  popoverTrigger: "hover",
-  popoverPlacement: "bottom-end",
-};
+

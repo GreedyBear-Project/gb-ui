@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import JSONInput from "react-json-editor-ajrm";
 import locale from "react-json-editor-ajrm/locale/en";
 
-function CustomJsonInput(props) {
-  const { onChange, placeholder, ...rest } = props;
+function CustomJsonInput({ onChange = null, placeholder = null, ...rest }) {
   return (
     <JSONInput
       style={{
@@ -31,11 +30,6 @@ function CustomJsonInput(props) {
 CustomJsonInput.propTypes = {
   onChange: PropTypes.func,
   placeholder: PropTypes.object,
-};
-
-CustomJsonInput.defaultProps = {
-  onChange: null,
-  placeholder: null,
 };
 
 export default React.memo(CustomJsonInput);

@@ -10,8 +10,7 @@ import {
   Legend
 } from "recharts";
 
-function CustomComposedChart(props) {
-  const { xAxisDataKey, data, children, containerProps, chartProps, } = props;
+function CustomComposedChart({ xAxisDataKey, data, children, containerProps = undefined, chartProps = undefined }) {
 
   return (
     <ResponsiveContainer width="100%" height={250} {...containerProps}>
@@ -50,11 +49,6 @@ CustomComposedChart.propTypes = {
   children: PropTypes.node.isRequired,
   containerProps: PropTypes.object,
   chartProps: PropTypes.object,
-};
-
-CustomComposedChart.defaultProps = {
-  containerProps: undefined,
-  chartProps: undefined,
 };
 
 export default React.memo(CustomComposedChart);

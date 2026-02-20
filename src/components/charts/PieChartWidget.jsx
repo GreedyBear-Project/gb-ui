@@ -83,7 +83,7 @@ const renderActiveShape = (props) => {
 export default function PieChartWidget({
   url,
   modifierFn,
-  composedChartProps,
+  composedChartProps = undefined,
 }) {
   // consume zustand store
   const { range, } = useTimePickerStore();
@@ -146,6 +146,3 @@ PieChartWidget.propTypes = {
   composedChartProps: PropTypes.object,
 };
 
-PieChartWidget.defaultProps = {
-  composedChartProps: undefined,
-};
