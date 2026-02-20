@@ -10,7 +10,7 @@ import {
   Legend
 } from "recharts";
 
-function CustomComposedChart({ xAxisDataKey, data, children, containerProps = undefined, chartProps = undefined }) {
+function CustomComposedChart({ xAxisDataKey, data, children, containerProps = undefined, chartProps = undefined, }) {
 
   return (
     <ResponsiveContainer width="100%" height={250} {...containerProps}>
