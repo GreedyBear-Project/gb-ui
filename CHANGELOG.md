@@ -2,6 +2,9 @@
 
 **[Get it on npm](https://www.npmjs.com/package/certego-ui)**
 
+## [v0.1.20](https://github.com/certego/certego-ui/releases/tag/v0.1.20)
+Added contribution [CLA](https://github.com/certego/certego-ui/blob/main/CONTRIBUTING.md)
+
 ## [v0.1.19](https://github.com/certego/certego-ui/releases/tag/v0.1.19)
 Removed css for input slider
 
