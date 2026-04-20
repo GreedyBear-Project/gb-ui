@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Input } from "reactstrap";
 
 export default function Select({ choices, allowEmpty = false, emptyLabel = "", ...rest }) {
@@ -20,8 +19,3 @@ export default function Select({ choices, allowEmpty = false, emptyLabel = "", .
   );
 }
 
-Select.propTypes = {
-  choices: PropTypes.array.isRequired,
-  allowEmpty: PropTypes.bool,
-  emptyLabel: PropTypes.string,
-};

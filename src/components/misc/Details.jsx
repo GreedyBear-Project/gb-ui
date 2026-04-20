@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Collapse } from "reactstrap";
 
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
@@ -49,10 +48,4 @@ export default function Details({ title = "Toggle expand", children, clickCovers
     </div>
   );
 }
-
-Details.propTypes = {
-  title: PropTypes.string,
-  clickCoversRegion: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-};
 

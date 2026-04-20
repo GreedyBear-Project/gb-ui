@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import React from "react";
 import { useRowSelect, useExpanded } from "react-table";
 import { FormGroup, Input, UncontrolledTooltip, Label } from "reactstrap";
@@ -26,7 +24,6 @@ export const createUseRowDisabledHook = (hocProps) => (hooks) => {
     {
       id: "data-table-disabled_row_action",
       width: 80,
-      // eslint-disable-next-line react/prop-types
       Cell: ({ row: { original: obj, }, }) =>
         obj?.permissions?.edit ? (
           <>

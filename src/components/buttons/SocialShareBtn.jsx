@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Button, UncontrolledPopover, PopoverBody } from "reactstrap";
 import {
   EmailShareButton,
@@ -11,7 +10,6 @@ import { FaLink } from "react-icons/fa";
 import { MdShare } from "react-icons/md";
 import { nanoid } from "nanoid";
 import CopyToClipboardButton from "./CopyToClipboardButton";
-
 
 export default function SocialShareBtn({
   id = undefined,
@@ -56,14 +54,4 @@ export default function SocialShareBtn({
     </div>
   );
 }
-
-SocialShareBtn.propTypes = {
-  id: PropTypes.string,
-  url: PropTypes.string.isRequired,
-  onlyIcon: PropTypes.bool,
-  btnProps: PropTypes.object,
-  popoverTrigger: PropTypes.string,
-  popoverPlacement: PropTypes.string,
-};
-
 

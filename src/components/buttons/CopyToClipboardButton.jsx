@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Tooltip, UncontrolledTooltip } from "reactstrap";
 import { HiClipboardCopy } from "react-icons/hi";
 
@@ -51,13 +50,5 @@ function CopyToClipboardButton({ id, text, children = null, tooltip = null, show
     </>
   );
 }
-
-CopyToClipboardButton.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  text: PropTypes.string.isRequired,
-  children: PropTypes.node,
-  tooltip: PropTypes.object,
-  showOnHover: PropTypes.bool,
-};
 
 export default CopyToClipboardButton;

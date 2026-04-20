@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classnames from "classnames";
 
 function ContentSection({ className = null, children, ...rest }) {
@@ -9,10 +8,5 @@ function ContentSection({ className = null, children, ...rest }) {
     </div>
   );
 }
-
-ContentSection.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
 
 export default ContentSection;

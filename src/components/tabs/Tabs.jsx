@@ -1,6 +1,5 @@
 import React from "react";
 
-import PropTypes from "prop-types";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import classnames from "classnames";
 
@@ -46,15 +45,5 @@ function Tabs({ tabTitles, renderables, defaultTab = 0, overflow = false, classN
     </>
   );
 }
-
-Tabs.propTypes = {
-  tabTitles: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.object])
-  ).isRequired,
-  renderables: PropTypes.arrayOf(PropTypes.func).isRequired,
-  defaultTab: PropTypes.number,
-  overflow: PropTypes.bool,
-  className: PropTypes.string,
-};
 
 export default Tabs;

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classnames from "classnames";
 import { Nav } from "reactstrap";
 
@@ -42,22 +41,5 @@ function RouterTabs({ routes, className = undefined, overflow = false, redirect 
     </>
   );
 }
-
-RouterTabs.propTypes = {
-  routes: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired,
-      Title: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
-      Component: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-        .isRequired,
-    })
-  ).isRequired,
-  redirect: PropTypes.bool,
-  overflow: PropTypes.bool,
-  className: PropTypes.string,
-  children: PropTypes.node,
-  extraNavComponent: PropTypes.node,
-};
 
 export default RouterTabs;

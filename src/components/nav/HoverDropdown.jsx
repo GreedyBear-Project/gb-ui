@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Dropdown } from "reactstrap";
 
 /**
@@ -21,10 +20,5 @@ function HoverDropdown({ defaultOpen = false, ...toPassProps }) {
     />
   );
 }
-
-HoverDropdown.propTypes = {
-  ...Dropdown.propTypes,
-  defaultOpen: PropTypes.bool,
-};
 
 export default HoverDropdown;

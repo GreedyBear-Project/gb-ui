@@ -1,6 +1,5 @@
 import React from "react";
 import useAxios from "axios-hooks";
-import PropTypes from "prop-types";
 import { Button } from "reactstrap";
 import { MdClear } from "react-icons/md";
 
@@ -40,9 +39,3 @@ export default function AsyncSelect({
   );
 }
 
-AsyncSelect.propTypes = {
-  url: PropTypes.string.isRequired,
-  selectorFn: PropTypes.func,
-  mapFn: PropTypes.func,
-  onClear: PropTypes.func,
-};

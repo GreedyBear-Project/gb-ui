@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from "react";
-import PropTypes from "prop-types";
 import { Toast, ToastBody, ToastHeader, Spinner } from "reactstrap";
 import { MdError, MdWarning, MdInfo, MdCheckCircle } from "react-icons/md";
 
@@ -43,13 +42,4 @@ export default function Toaster({
     </Toast>
   );
 }
-
-Toaster.propTypes = {
-  ...Toast.propTypes,
-  header: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  body: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  color: PropTypes.string,
-  timeout: PropTypes.number,
-  showToggle: PropTypes.bool,
-};
 

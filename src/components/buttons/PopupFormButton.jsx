@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Button, Popover, UncontrolledTooltip, PopoverBody } from "reactstrap";
 import { nanoid } from "nanoid";
 import { IoMdClose } from "react-icons/io";
@@ -55,15 +54,4 @@ export default function PopupFormButton({
     </>
   );
 }
-
-PopupFormButton.propTypes = {
-  id: PropTypes.string,
-  title: PropTypes.string,
-  titlePlacement: PropTypes.string,
-  popOverPlacement: PropTypes.string,
-  Icon: PropTypes.func.isRequired,
-  Form: PropTypes.func.isRequired,
-  onFormSuccess: PropTypes.func,
-};
-
 
