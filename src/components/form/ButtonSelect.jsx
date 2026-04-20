@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { ButtonGroup, Button } from "reactstrap";
 
 function ButtonSelect({ choices, value, onChange, buttonProps = {}, ...rest }) {
@@ -20,12 +19,5 @@ function ButtonSelect({ choices, value, onChange, buttonProps = {}, ...rest }) {
     </ButtonGroup>
   );
 }
-
-ButtonSelect.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  choices: PropTypes.array.isRequired,
-  buttonProps: PropTypes.object,
-};
 
 export default React.memo(ButtonSelect);

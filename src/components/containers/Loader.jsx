@@ -1,6 +1,5 @@
 import React from "react";
 import { Spinner } from "reactstrap";
-import PropTypes from "prop-types";
 
 import ErrorAlert from "../alerts/ErrorAlert";
 
@@ -15,13 +14,5 @@ function Loader({ loading, error = null, render, renderError = ErrorAlert, size 
     </>
   );
 }
-
-Loader.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.object,
-  render: PropTypes.func.isRequired,
-  renderError: PropTypes.func,
-  size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
-};
 
 export default Loader;

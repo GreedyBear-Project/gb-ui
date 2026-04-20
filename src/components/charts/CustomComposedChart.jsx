@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -42,13 +41,5 @@ function CustomComposedChart({ xAxisDataKey, data, children, containerProps = un
     </ResponsiveContainer>
   );
 }
-
-CustomComposedChart.propTypes = {
-  xAxisDataKey: PropTypes.string.isRequired,
-  data: PropTypes.array.isRequired,
-  children: PropTypes.node.isRequired,
-  containerProps: PropTypes.object,
-  chartProps: PropTypes.object,
-};
 
 export default React.memo(CustomComposedChart);

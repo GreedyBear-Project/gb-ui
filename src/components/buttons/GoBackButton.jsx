@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { MdArrowBackIosNew } from "react-icons/md";
 import useHoverDirty from "react-use/lib/useHoverDirty";
@@ -24,11 +23,6 @@ function GoBackIcon({onlyIcon, isHovering,}) {
           )}
     </>
   );
-};
-
-GoBackIcon.propTypes = {
-  isHovering: PropTypes.bool.isRequired,
-  onlyIcon: PropTypes.bool.isRequired,
 };
 
 export default function GoBackButton({ onlyIcon = true, ...restProps }) {
@@ -68,9 +62,4 @@ export default function GoBackButton({ onlyIcon = true, ...restProps }) {
     />
   );
 }
-
-GoBackButton.propTypes = {
-  onlyIcon: PropTypes.bool,
-};
-
 

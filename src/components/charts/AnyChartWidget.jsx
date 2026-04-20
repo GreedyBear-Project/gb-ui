@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { format } from "date-fns";
 
 import CustomComposedChart from "./CustomComposedChart";
@@ -59,11 +58,4 @@ export default function AnyChartWidget({
     />
   );
 }
-
-AnyChartWidget.propTypes = {
-  url: PropTypes.string.isRequired,
-  accessorFnAggregation: PropTypes.func.isRequired,
-  componentsFn: PropTypes.func.isRequired,
-  composedChartProps: PropTypes.object,
-};
 

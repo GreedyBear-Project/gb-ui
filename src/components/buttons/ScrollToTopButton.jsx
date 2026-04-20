@@ -1,6 +1,5 @@
 
 import React from "react";
-import PropTypes from "prop-types";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { Button } from "reactstrap";
 
@@ -45,9 +44,4 @@ export default function ScrollToTopButton({ defaultVisible = false, scrollYOffse
     </div>
   );
 }
-
-ScrollToTopButton.propTypes = {
-  defaultVisible: PropTypes.bool,
-  scrollYOffset: PropTypes.number,
-};
 

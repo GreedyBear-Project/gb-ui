@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { ResponsiveContainer, PieChart, Pie, Sector, Legend } from "recharts";
 
 import { useAxiosComponentLoader } from "../../hooks";
@@ -139,10 +138,4 @@ export default function PieChartWidget({
     />
   );
 }
-
-PieChartWidget.propTypes = {
-  url: PropTypes.string.isRequired,
-  modifierFn: PropTypes.func.isRequired,
-  composedChartProps: PropTypes.object,
-};
 

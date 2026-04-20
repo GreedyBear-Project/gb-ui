@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {
   Row,
@@ -115,13 +114,4 @@ export default function InfiniteScrollList({
     </Fade>
   );
 }
-
-InfiniteScrollList.propTypes = {
-  data: PropTypes.array.isRequired,
-  showSearch: PropTypes.bool,
-  searchableKeys: PropTypes.array,
-  renderListItem: PropTypes.func.isRequired,
-  genListKeyProp: PropTypes.func.isRequired,
-  children: PropTypes.node,
-};
 

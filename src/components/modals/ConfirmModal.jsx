@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { createRoot } from "react-dom/client";
-import PropTypes from "prop-types";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
 function ConfirmModal({
@@ -53,22 +52,6 @@ function ConfirmModal({
     </Modal>
   );
 }
-
-
-ConfirmModal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  message: PropTypes.node,
-  title: PropTypes.node,
-  confirmText: PropTypes.node,
-  cancelText: PropTypes.node,
-  confirmColor: PropTypes.string,
-  cancelColor: PropTypes.string,
-  className: PropTypes.string,
-  size: PropTypes.string,
-  buttonsComponent: PropTypes.func,
-  bodyComponent: PropTypes.func,
-  modalProps: PropTypes.object,
-};
 
 export const confirm = (props) => new Promise((resolve) => {
     const el = document.createElement("div");

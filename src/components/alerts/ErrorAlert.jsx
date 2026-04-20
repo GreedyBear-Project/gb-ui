@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classnames from "classnames";
 import { Alert, Col } from "reactstrap";
 import { MdError } from "react-icons/md";
@@ -35,11 +34,5 @@ function ErrorAlert({ error, size = "md", className = undefined, ...rest }) {
     </Alert>
   );
 }
-
-ErrorAlert.propTypes = {
-  error: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
-};
 
 export default ErrorAlert;

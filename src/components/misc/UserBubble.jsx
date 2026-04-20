@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classnames from "classnames";
 
 /**
@@ -37,10 +36,4 @@ export default function UserBubble({ userInfo, size = "sm", className = undefine
     </div>
   );
 }
-
-UserBubble.propTypes = {
-  size: PropTypes.oneOf(["xs", "sm"]),
-  className: PropTypes.string,
-  userInfo: PropTypes.object.isRequired,
-};
 

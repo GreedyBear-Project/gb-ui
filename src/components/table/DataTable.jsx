@@ -1,6 +1,5 @@
 /* eslint-disable no-nested-ternary */
 import React from "react";
-import PropTypes from "prop-types";
 import classnames from "classnames";
 import { Table } from "reactstrap";
 // react-table doc: https://react-table-v7-docs.netlify.app/
@@ -185,14 +184,5 @@ function DataTable({
     </div>
   );
 }
-
-DataTable.propTypes = {
-  config: PropTypes.object,
-  onSelectedRowChange: PropTypes.func,
-  SubComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.elementType]),
-  tableProps: PropTypes.object,
-  tableEmptyNode: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  TableBodyComponent: PropTypes.func,
-};
 
 export default DataTable;

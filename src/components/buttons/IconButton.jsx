@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Button, UncontrolledTooltip } from "reactstrap";
 import { nanoid } from "nanoid";
 
@@ -24,12 +23,5 @@ function IconButton({ id = undefined, title = undefined, titlePlacement = "right
     </Button>
   );
 }
-
-IconButton.propTypes = {
-  id: PropTypes.string,
-  title: PropTypes.string,
-  titlePlacement: PropTypes.string,
-  Icon: PropTypes.func.isRequired,
-};
 
 export default IconButton;

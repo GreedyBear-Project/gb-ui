@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Card, CardBody, CardHeader } from "reactstrap";
 
@@ -11,11 +10,5 @@ function SmallInfoCard({ header, body, className = undefined, ...rest }) {
     </Card>
   );
 }
-
-SmallInfoCard.propTypes = {
-  header: PropTypes.string.isRequired,
-  body: PropTypes.node.isRequired,
-  className: PropTypes.string,
-};
 
 export default SmallInfoCard;

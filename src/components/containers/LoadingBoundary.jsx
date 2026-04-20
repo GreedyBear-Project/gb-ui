@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Spinner } from "reactstrap";
 
 import ErrorAlert from "../alerts/ErrorAlert";
@@ -22,13 +21,5 @@ function LoadingBoundary({ loading = false, error = null, size = "md", render, r
     </>
   );
 }
-
-LoadingBoundary.propTypes = {
-  error: PropTypes.object,
-  loading: PropTypes.bool,
-  render: PropTypes.func.isRequired,
-  renderError: PropTypes.func,
-  size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
-};
 
 export default LoadingBoundary;

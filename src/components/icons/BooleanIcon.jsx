@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classnames from "classnames";
 import { MdCheck, MdCheckCircleOutline } from "react-icons/md";
 import { IoMdCloseCircleOutline, IoMdClose } from "react-icons/io";
@@ -24,10 +23,4 @@ export default function BooleanIcon({ truthy, withColors = false, outline = true
     />
   );
 }
-
-BooleanIcon.propTypes = {
-  truthy: PropTypes.bool.isRequired,
-  withColors: PropTypes.bool,
-  outline: PropTypes.bool,
-};
 

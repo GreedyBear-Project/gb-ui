@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import ReactJson from "react-json-view";
 
@@ -16,9 +15,5 @@ function NewJsonRenderer({ jsonData = null, ...rest }) {
     />
   );
 }
-
-NewJsonRenderer.propTypes = {
-  jsonData: PropTypes.object,
-};
 
 export default React.memo(NewJsonRenderer);

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Button, ButtonGroup } from "reactstrap";
 
 /**
@@ -36,13 +35,5 @@ function TernaryCheckbox({ value, onChange, trueLabel = "Yes", falseLabel = "No"
     </ButtonGroup>
   );
 }
-
-TernaryCheckbox.propTypes = {
-  value: PropTypes.oneOf([true, false, undefined]).isRequired,
-  onChange: PropTypes.func.isRequired,
-  falseLabel: PropTypes.string,
-  trueLabel: PropTypes.string,
-  undefLabel: PropTypes.string,
-};
 
 export default React.memo(TernaryCheckbox);
