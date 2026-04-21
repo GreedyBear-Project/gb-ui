@@ -10,8 +10,8 @@ import {
   SelectOptionsFilter,
   DataTable,
   useDataTable,
-  TableHintIcon
-} from "@certego/certego-ui";
+  TableHintIcon,
+} from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

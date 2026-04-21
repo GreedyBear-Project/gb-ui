@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ContentSection, SlicedText } from "@certego/certego-ui";
+import { ContentSection, SlicedText } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

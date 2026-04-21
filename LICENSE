@@ -1,6 +1,8 @@
 MIT License
 
-Copyright (c) 2021 Certego S.R.L
+Copyright (c) 2026 GreedyBear Project
+
+This project is a fork of certego/certego-ui, created to support modern React versions. The original project is maintained by Certego S.R.L.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

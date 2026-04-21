@@ -4,8 +4,8 @@ import {
   ContentSection,
   ElasticTimePicker,
   DateHoverable,
-  useTimePickerStore
-} from "@certego/certego-ui";
+  useTimePickerStore,
+} from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

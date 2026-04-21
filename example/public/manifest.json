@@ -1,6 +1,6 @@
 {
-  "short_name": "@certego/certego-ui",
-  "name": "@certego/certego-ui",
+  "short_name": "@greedybear/gb-ui",
+  "name": "@greedybear/gb-ui",
   "icons": [
     {
       "src": "favicon.ico",

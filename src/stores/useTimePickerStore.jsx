@@ -30,8 +30,8 @@ const useTimePickerStore = create(
       },
     }),
     {
-      name: "certegoUI-useTimePickerStore", // unique name
-      storage: createJSONStorage(() => localStorage),
+      name: "gbUI-useTimePickerStore", // unique name
+      getStorage: () => localStorage,
     }
   )
 );

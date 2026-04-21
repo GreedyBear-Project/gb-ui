@@ -5,8 +5,8 @@ import {
   ContentSection,
   SmallInfoCard,
   Loader,
-  LoadingBoundary
-} from "@certego/certego-ui";
+  LoadingBoundary,
+} from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

@@ -6,7 +6,7 @@ export default function AppHeader() {
   return (
     <Navbar dark expand="xs">
       <NavbarBrand tag={RRNavLink} to="/">
-        <span className="text-secondary h4">@certego/certego-ui</span>
+        <span className="text-secondary h4">@greedybear/gb-ui</span>
       </NavbarBrand>
       <h6 className="fst-italic">example components</h6>
     </Navbar>

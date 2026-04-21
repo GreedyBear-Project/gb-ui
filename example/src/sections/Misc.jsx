@@ -7,8 +7,8 @@ import {
   Details,
   Toaster,
   UserBubble,
-  FallBackLoading
-} from "@certego/certego-ui";
+  FallBackLoading,
+} from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

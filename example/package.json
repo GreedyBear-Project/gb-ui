@@ -1,6 +1,5 @@
 {
-  "name": "@certego/certego-ui-example",
-  "homepage": "https://certego.github.io/certego-ui",
+  "name": "@greedybear/gb-ui-example",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +8,7 @@
     "test": "node ../node_modules/vitest/vitest.mjs run --config vitest.config.mjs"
   },
   "dependencies": {
-    "@certego/certego-ui": "file:..",
+    "@greedybear/gb-ui": "file:..",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "vite": "file:../node_modules/vite"

@@ -1,79 +1,62 @@
-# @certego/certego-ui
+# @greedybear/gb-ui
 
-[![NPM](https://img.shields.io/npm/v/@certego/certego-ui.svg)](https://www.npmjs.com/package/@certego/certego-ui)
-[![Node.js Package](https://github.com/certego/certego-ui/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/certego/certego-ui/actions/workflows/npm-publish.yml)
+GreedyBear frontend components library. Built on React.js + reactstrap + more. Fork of [certego/certego-ui](https://github.com/certego/certego-ui), used by the [GreedyBear](https://github.com/GreedyBear-Project/GreedyBear) project.
 
-Certego components library. Built on React.js + reactstrap + more.
+Not published to npm. Consume this repo as a git dependency from `package.json`, e.g.:
 
-## Projects using certego-ui
-
-- [Dragonfly](https://dragonfly.certego.net/): Dragonfly is a malware sandbox based on binary emulation, a service by [Certego S.R.L](https://certego.net/). 
-- [IntelOwl](https://github.com/intelowlproject/IntelOwl)
-
-## Install
-
-```bash
-npm install --save @certego/certego-ui
+```json
+"@greedybear/gb-ui": "github:GreedyBear-Project/gb-ui#<commit-or-tag>"
 ```
 
 ## Documentation
 
-### Use local build of `certego-ui` with hot-reload (for faster development)
+### Use local build of `gb-ui` with hot-reload (for faster development)
 
-You can configure your local development environment in a way that any change in the `certego-ui` directory will trigger a new build which, in turn, will trigger a new build of your project. This will save you a lot of development time and headache.
+You can configure your local development environment in a way that any change in the `gb-ui` directory will trigger a new build which, in turn, will trigger a new build of your project. This will save you a lot of development time and headache.
 
-- Clone the [certego/certego-ui](https://github.com/certego/certego-ui) repository if you haven't already.
+- Clone the [gb-ui](https://github.com/GreedyBear-Project/gb-ui) repository if you haven't already.
 
 ```bash
-$ git clone git@github.com:certego/certego-ui.git /home/user/certego-ui
+$ git clone git@github.com:GreedyBear-Project/gb-ui.git /home/user/gb-ui
 ```
 
 - Install dependencies and start local dev server,
 
 ```bash
-/home/user/certego-ui$ npm install
-/home/user/certego-ui$ npm start
+/home/user/gb-ui$ npm install
+/home/user/gb-ui$ npm start
 ```
 
-- In your other project that uses `certego-ui`, open the `package.json` file and modify under `"dependencies"` to `"@certego/certego-ui": "/home/user/certego-ui"`.
+- In your other project that uses `gb-ui`, open the `package.json` file and modify under `"dependencies"` to `"@greedybear/gb-ui": "/home/user/gb-ui"`.
 - Now re-install dependencies and start local dev server,
 
 ```bash
-/home/user/certego-ui$ npm install
-/home/user/certego-ui$ npm start
+/home/user/gb-ui$ npm install
+/home/user/gb-ui$ npm start
 ```
 
 ### Start example project
 
-- Open a terminal and start local dev server for `certego-ui`,
+- Open a terminal and start local dev server for `gb-ui`,
 
 ```bash
-/home/user/certego-ui$ npm start
+/home/user/gb-ui$ npm start
 ```
 
-- Open another terminal and start local dev server for the `certego-ui/example` app,
+- Open another terminal and start local dev server for the `gb-ui/example` app,
 
 ```bash
-/home/user/certego-ui/example$ npm install
-/home/user/certego-ui/example$ npm start
+/home/user/gb-ui/example$ npm install
+/home/user/gb-ui/example$ npm start
 ```
 
 - The example application will be served on http://localhost:3000/.
 
 
-### Create new release (github & npm)
+### Shipping changes
 
-- Modify `version` attribute inside `package.json` file and run `npm install` in a terminal.
-- Modify `CERTEGO_UI_VERSION` variable in `example/src/layouts/AppFooter.jsx` file.
-- Write a new entry in the `CHANGELOG.md` file describing the changes.
-- Finally, you should create a new release on the GitHub repistory by going to [this](https://github.com/certego/certego-ui/releases/new) link.
-
-New release on GitHub will automatically publish new release on npmjs.com and, re-build and deploy the example application as well.
-
-## Changelog
-
-[CHANGELOG.md](https://github.com/certego/certego-ui/blob/main/CHANGELOG.md)
+No npm publishing. Merge to `main`, then point the GreedyBear `package.json` at the new commit / tag. The `version` field in `package.json` is decorative.
 
 ## License
 
-MIT © [certego](https://github.com/certego)
+MIT © [GreedyBear Project](https://github.com/GreedyBear-Project)

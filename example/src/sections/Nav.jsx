@@ -5,8 +5,8 @@ import {
   ContentSection,
   HoverDropdown,
   DropdownNavLink,
-  NavLink
-} from "@certego/certego-ui";
+  NavLink,
+} from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

@@ -1,17 +1,17 @@
 {
-  "name": "@certego/certego-ui",
-  "version": "0.1.20",
-  "description": "certego components library (react.js, reactstrap, etc)",
-  "author": "certego",
+  "name": "@greedybear/gb-ui",
+  "version": "0.1.0",
+  "description": "GreedyBear frontend components library (react.js, reactstrap, etc)",
+  "author": "GreedyBear",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/certego/certego-ui"
+    "url": "https://github.com/GreedyBear-Project/gb-ui"
   },
   "bugs": {
-    "url": "https://github.com/certego/certego-ui/issues"
+    "url": "https://github.com/GreedyBear-Project/gb-ui/issues"
   },
-  "homepage": "https://github.com/certego/certego-ui#readme",
+  "homepage": "https://github.com/GreedyBear-Project/gb-ui#readme",
   "publishConfig": {
     "access": "public"
   },

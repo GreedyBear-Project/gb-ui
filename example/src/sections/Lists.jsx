@@ -4,8 +4,8 @@ import {
   ContentSection,
   useAxiosComponentLoader,
   InfiniteScrollList,
-  KvList
-} from "@certego/certego-ui";
+  KvList,
+} from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 
