@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "reactstrap";
 
-import { ContentSection, Tabs, RouterTabs } from "@certego/certego-ui";
+import { ContentSection, Tabs, RouterTabs } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

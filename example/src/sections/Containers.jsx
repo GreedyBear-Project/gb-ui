@@ -6,7 +6,7 @@ import {
   SmallInfoCard,
   Loader,
   LoadingBoundary,
-} from "@certego/certego-ui";
+} from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

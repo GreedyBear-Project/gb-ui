@@ -23,7 +23,7 @@ import {
   InputCheckBox,
   CustomJsonInput,
   NewJsonRenderer,
-} from "@certego/certego-ui";
+} from "@greedybear/gb-ui";
 
 // constants
 const asyncSelectProps = {
@@ -184,7 +184,7 @@ export default function FormExample(props) {
               <Col md={4}>
                 <FormGroup>
                   <Label className="required" for="discover_from">
-                    How did you discover <code>certego-ui</code>?
+                    How did you discover <code>gb-ui</code>?
                   </Label>
                   <Select
                     name="discover_from"

@@ -26,7 +26,7 @@ import {
   ScrollToTopButton,
   SocialShareBtn,
   SyncButton,
-} from "@certego/certego-ui";
+} from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 
@@ -165,7 +165,7 @@ export default function Buttons(props) {
             <Col className="d-flex-center flex-column">
               <SocialShareBtn
                 id="social-share-btn-example-1"
-                url="https://github.com/certego/certego-ui"
+                url="https://github.com/GreedyBear-Project/gb-ui"
                 popoverTrigger="hover"
                 popoverPlacement="left"
               />
@@ -174,7 +174,7 @@ export default function Buttons(props) {
             <Col className="d-flex-center flex-column">
               <SocialShareBtn
                 id="social-share-btn-example-2"
-                url="https://github.com/certego/certego-ui"
+                url="https://github.com/GreedyBear-Project/gb-ui"
                 popoverPlacement="top"
                 onlyIcon
               />
@@ -183,7 +183,7 @@ export default function Buttons(props) {
             <Col className="d-flex-center flex-column">
               <SocialShareBtn
                 id="social-share-btn-example-3"
-                url="https://github.com/certego/certego-ui"
+                url="https://github.com/GreedyBear-Project/gb-ui"
                 popoverTrigger="click"
                 popoverPlacement="top"
               />

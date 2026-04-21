@@ -1,11 +1,10 @@
 import React from "react";
 import { Row, Col, Container } from "reactstrap";
-import { FaTwitter } from "react-icons/fa";
 
-import { Toaster, ScrollToTopButton, useToastr } from "@certego/certego-ui";
+import { Toaster, ScrollToTopButton, useToastr } from "@greedybear/gb-ui";
 
 // constants
-const CERTEGO_UI_VERSION = "v0.1.20";
+const GB_UI_VERSION = "v0.1.0";
 const selector = (state) => state.toasts;
 
 function AppFooter() {
@@ -26,36 +25,24 @@ function AppFooter() {
       <Container fluid className="border-top mt-2 py-1">
         <Row className="d-flex flex-column text-center lead g-0">
           <Col className="text-muted small standout">
-            <strong>certego-ui </strong> &copy; By{" "}
+            <strong>gb-ui </strong> &copy; By{" "}
             <a
               className="text-muted link"
-              href="https://certego.net/"
+              href="https://github.com/GreedyBear-Project"
               target="_blank"
               rel="noreferrer noopener"
             >
-              Certego S.R.L
+              GreedyBear Project
             </a>
           </Col>
           <Col className="text-muted small standout">
             <a
               className="text-muted link"
-              href={`https://github.com/certego/certego-ui`}
+              href={`https://github.com/GreedyBear-Project/gb-ui`}
               target="_blank"
               rel="noreferrer noopener"
             >
-              ({CERTEGO_UI_VERSION})
-            </a>
-          </Col>
-        </Row>
-        <Row className="mt-3 text-center g-0">
-          <Col>
-            <a
-              href={`https://twitter.com/Certego_IRT?ref_src=twsrc%5Etfw`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="twitter-follow-button"
-            >
-              <FaTwitter /> Follow @Certego_IRT
+              ({GB_UI_VERSION})
             </a>
           </Col>
         </Row>

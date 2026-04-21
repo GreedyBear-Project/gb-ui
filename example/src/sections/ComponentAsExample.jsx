@@ -1,7 +1,7 @@
 import React from "react";
 import { Collapse, Container } from "reactstrap";
 
-import { ContentSection, ArrowToggleIcon } from "@certego/certego-ui";
+import { ContentSection, ArrowToggleIcon } from "@greedybear/gb-ui";
 
 export default function ComponentAsExample(props) {
   // props

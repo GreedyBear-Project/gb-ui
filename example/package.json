@@ -1,6 +1,5 @@
 {
-  "name": "@certego/certego-ui-example",
-  "homepage": "https://certego.github.io/certego-ui",
+  "name": "@greedybear/gb-ui-example",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,7 +9,7 @@
     "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
   },
   "dependencies": {
-    "@certego/certego-ui": "file:..",
+    "@greedybear/gb-ui": "file:..",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "file:../node_modules/react-scripts"

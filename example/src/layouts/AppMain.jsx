@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Nav } from "reactstrap";
 import { FaGithub } from "react-icons/fa";
 
-import { ContentSection, useRouterTabs } from "@certego/certego-ui";
+import { ContentSection, useRouterTabs } from "@greedybear/gb-ui";
 
 import { capitalize, buildGitHubPath } from "../utils";
 

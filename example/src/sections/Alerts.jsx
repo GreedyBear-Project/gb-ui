@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ContentSection, ErrorAlert, IconAlert } from "@certego/certego-ui";
+import { ContentSection, ErrorAlert, IconAlert } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

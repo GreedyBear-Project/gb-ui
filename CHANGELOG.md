@@ -1,6 +1,6 @@
 # Changelog
 
-**[Get it on npm](https://www.npmjs.com/package/certego-ui)**
+> This project is a fork of [certego/certego-ui](https://github.com/certego/certego-ui). The entries below (v0.0.1 – v0.1.20) are the upstream release history, kept for reference. Post-fork changes are not tracked here — see `git log` on `main` instead.
 
 ## [v0.1.20](https://github.com/certego/certego-ui/releases/tag/v0.1.20)
 Added contribution [CLA](https://github.com/certego/certego-ui/blob/main/CONTRIBUTING.md)

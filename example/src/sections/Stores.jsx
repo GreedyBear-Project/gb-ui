@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "reactstrap";
 
-import { ContentSection, useToastr } from "@certego/certego-ui";
+import { ContentSection, useToastr } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 import { capitalize } from "../utils";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Bar, Area } from "recharts";
 
-import { ContentSection, CustomComposedChart } from "@certego/certego-ui";
+import { ContentSection, CustomComposedChart } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 

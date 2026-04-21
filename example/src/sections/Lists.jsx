@@ -5,7 +5,7 @@ import {
   useAxiosComponentLoader,
   InfiniteScrollList,
   KvList,
-} from "@certego/certego-ui";
+} from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 
