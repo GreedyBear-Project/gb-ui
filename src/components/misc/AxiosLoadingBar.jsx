@@ -24,7 +24,7 @@ export default function AxiosLoadingBar({ axiosInstance, color = "#9441b7", ...r
         return response;
       },
       (error) => {
-        if (ref?.current && error.response.config.certegoUIenableProgressBar)
+        if (ref?.current && error?.response?.config?.certegoUIenableProgressBar)
           ref.current.complete();
         return Promise.reject(error);
       }
