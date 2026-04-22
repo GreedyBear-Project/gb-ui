@@ -1,15 +1,57 @@
 import React from "react";
-import useAxios from "axios-hooks";
+import axios from "axios";
 
 import Loader from "../components/containers/Loader";
 
 const noop = (x) => x;
 
 function useAxiosComponentLoader(axiosOptions, modifier = noop) {
-  const obj = React.useMemo(() => axiosOptions, [axiosOptions ]);
+  const requestConfig = React.useMemo(
+    () => (typeof axiosOptions === "string" ? { url: axiosOptions, } : axiosOptions),
+    [axiosOptions]
+  );
+  const [requestKey, setRequestKey] = React.useState(0);
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null);
 
-  // API
-  const [{ data, loading, error, }, refetch] = useAxios(obj);
+  React.useEffect(() => {
+    const controller = new AbortController();
+    let isMounted = true;
+
+    setLoading(true);
+    setError(null);
+
+    axios({
+      ...requestConfig,
+      signal: controller.signal,
+    })
+      .then((response) => {
+        if (!isMounted)
+          return;
+
+        setData(response.data);
+      })
+      .catch((requestError) => {
+        if (!isMounted || requestError?.code === "ERR_CANCELED")
+          return;
+
+        setError(requestError);
+      })
+      .finally(() => {
+        if (isMounted)
+          setLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, [requestConfig, requestKey]);
+
+  const refetch = React.useCallback(() => {
+    setRequestKey((currentKey) => currentKey + 1);
+  }, []);
 
   // memo
   const MyLoader = React.useMemo(
