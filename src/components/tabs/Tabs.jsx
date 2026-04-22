@@ -8,7 +8,6 @@ import classnames from "classnames";
  * @param props
  */
 function Tabs({ tabTitles, renderables, defaultTab = 0, overflow = false, className = undefined, ...rest }) {
-
   const [activeTab, setActiveTab] = React.useState(defaultTab);
 
   const toggle = (tab) => {
@@ -17,7 +16,7 @@ function Tabs({ tabTitles, renderables, defaultTab = 0, overflow = false, classN
     }
   };
 
-  const navClasses = classnames("nav-tabs", className);
+  const navClasses = classnames("nav-tabs", { "overflow-auto": overflow, }, className);
 
   return (
     <>

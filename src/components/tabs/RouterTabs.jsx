@@ -23,7 +23,7 @@ import useRouterTabs from "./useRouterTabs";
 function RouterTabs({ routes, className = undefined, overflow = false, redirect = true, children = null, extraNavComponent = null, ...rest }) {
   // props
 
-  const navClasses = classnames("nav-tabs", className);
+  const navClasses = classnames("nav-tabs", { "overflow-auto": overflow, }, className);
 
   // call hook
   const { renderNavItems, renderRoutes, } = useRouterTabs({
@@ -36,6 +36,7 @@ function RouterTabs({ routes, className = undefined, overflow = false, redirect 
       <Nav tabs className={navClasses} {...rest}>
         {renderNavItems()}
         {extraNavComponent}
+        {children}
       </Nav>
       <div className="mt-3">{renderRoutes()}</div>
     </>
