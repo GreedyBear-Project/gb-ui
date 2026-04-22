@@ -80,7 +80,7 @@ test.describe("table visual states", () => {
     await openTable(page, baseURL);
 
     const section = page.getByTestId("table-visual-interactive");
-    const titleFilter = section.locator("#datatable-select-title");
+    const titleFilter = section.getByPlaceholder("Search keyword..").first();
 
     await titleFilter.fill("Alpha Watch");
     await titleFilter.press("Enter");
@@ -115,9 +115,10 @@ test.describe("table visual states", () => {
     await openTable(page, baseURL);
 
     const section = page.getByTestId("table-visual-interactive");
+    const rowCheckboxes = section.locator("tbody input[type='checkbox']");
 
-    await section.locator("#data-table-checkbox_cell_0").check();
-    await section.locator("#data-table-checkbox_cell_2").check();
+    await rowCheckboxes.nth(0).check();
+    await rowCheckboxes.nth(2).check();
     await expect(page.getByTestId("table-visual-selected-count")).toHaveText("2 selected");
 
     await expect(section).toHaveScreenshot("table-selected-desktop.png", {
