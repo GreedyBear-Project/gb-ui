@@ -18,7 +18,7 @@
     "airbnb",
     "prettier"
   ],
-  "settings": { "react": { "version": "17" } },
+  "settings": { "react": { "version": "detect" } },
   "rules": {
     "react/jsx-props-no-spreading": "off",
     "react/jsx-fragments": ["off"],

@@ -45,7 +45,7 @@
   },
   "peerDependencies": {
     "axios": "^1.6.0",
-    "axios-hooks": "^3.0.4",
+    "axios-hooks": "^5.1.1",
     "bootstrap": "^5.2.1",
     "formik": "^2.2.9",
     "react": "^19.0.0",
