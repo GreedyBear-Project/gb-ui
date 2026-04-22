@@ -7,7 +7,7 @@ export default function AxiosLoadingBar({ axiosInstance, color = "#9441b7", ...r
 
   React.useEffect(() => {
     // Add a request interceptor
-    axiosInstance.interceptors.request.use(
+    const requestInterceptorId = axiosInstance.interceptors.request.use(
       (config) => {
         if (ref?.current && config.certegoUIenableProgressBar)
           ref.current.continuousStart();
@@ -17,7 +17,7 @@ export default function AxiosLoadingBar({ axiosInstance, color = "#9441b7", ...r
     );
 
     // Add a response interceptor
-    axiosInstance.interceptors.response.use(
+    const responseInterceptorId = axiosInstance.interceptors.response.use(
       (response) => {
         if (ref?.current && response.config.certegoUIenableProgressBar)
           ref.current.complete();
@@ -29,6 +29,11 @@ export default function AxiosLoadingBar({ axiosInstance, color = "#9441b7", ...r
         return Promise.reject(error);
       }
     );
+
+    return () => {
+      axiosInstance.interceptors.request.eject(requestInterceptorId);
+      axiosInstance.interceptors.response.eject(responseInterceptorId);
+    };
   }, [axiosInstance]);
 
   return <LoadingBar shadow ref={ref} color={color} {...rest} />;

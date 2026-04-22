@@ -28,6 +28,11 @@ export default function ScrollToTopButton({ defaultVisible = false, scrollYOffse
 
   React.useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
+    toggleVisibility();
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
   }, [toggleVisibility]);
 
   return (
