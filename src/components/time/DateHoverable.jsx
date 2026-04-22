@@ -23,7 +23,7 @@ function DateHoverable({ id = undefined, value, className = undefined, noHover =
     return [format(dUTC, showFormat), tz, format(d, showFormat)];
   }, [value, showFormat]);
 
-  const timeId = id || `date-${nanoid(4)}`;
+  const timeId = React.useMemo(() => id || `date-${nanoid(4)}`, [id]);
 
   return (
     <>

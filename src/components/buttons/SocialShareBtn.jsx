@@ -22,8 +22,8 @@ export default function SocialShareBtn({
 }) {
 
   // vars
-  const btnId = id || `socialbtn-${nanoid(4)}`;
-  const copyBtnId = `copybtn-${id||nanoid(4)}`;
+  const btnId = React.useMemo(() => id || `socialbtn-${nanoid(4)}`, [id]);
+  const copyBtnId = React.useMemo(() => `copybtn-${btnId}`, [btnId]);
 
   return (
     <div>

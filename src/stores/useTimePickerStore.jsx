@@ -31,7 +31,7 @@ const useTimePickerStore = create(
     }),
     {
       name: "gbUI-useTimePickerStore", // unique name
-      getStorage: () => localStorage,
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );

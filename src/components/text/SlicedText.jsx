@@ -6,7 +6,7 @@ import CopyToClipboardButton from "../buttons/CopyToClipboardButton";
 function SlicedText({ value, id = undefined, cutoffLength = 15, ...rest }) {
 
   // vars
-  const btnId = id || `copybtn-${nanoid(4)}`;
+  const btnId = React.useMemo(() => id || `copybtn-${nanoid(4)}`, [id]);
 
   return (
     <div className="d-flex justify-content-between" {...rest}>

@@ -6,7 +6,7 @@ function IconButton({ id = undefined, title = undefined, titlePlacement = "right
   // props
 
   // vars
-  const btnId = id || `iconbtn-${nanoid(4)}`;
+  const btnId = React.useMemo(() => id || `iconbtn-${nanoid(4)}`, [id]);
 
   return (
     <Button id={btnId} type="button" {...rest}>

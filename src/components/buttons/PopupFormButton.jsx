@@ -36,7 +36,7 @@ export default function PopupFormButton({
   }, [onFormSuccess]);
 
   // vars
-  const btnId = id || `popover-btn-${nanoid(4)}`;
+  const btnId = React.useMemo(() => id || `popover-btn-${nanoid(4)}`, [id]);
 
   return (
     <>

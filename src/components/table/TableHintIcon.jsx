@@ -1,14 +1,17 @@
 import React from "react";
 import { MdInfoOutline } from "react-icons/md";
+import { nanoid } from "nanoid";
 
 import { UncontrolledTooltip } from "reactstrap";
 
 export default function TableHintIcon(props) {
+  const tooltipId = React.useMemo(() => `table-hint-icon-${nanoid(4)}`, []);
+
   return (
     <div {...props}>
-      <MdInfoOutline id="table-hint-icon" />
+      <MdInfoOutline id={tooltipId} />
       <UncontrolledTooltip
-        target="table-hint-icon"
+        target={tooltipId}
         trigger="hover"
         placement="right-start"
         flip
