@@ -7,15 +7,29 @@ export default function SyncButton({ onClick, className = null, title = "Sync wi
 
   // state
   const [wasClicked, setClicked] = React.useState(false);
+  const timeoutRef = React.useRef(null);
+
+  React.useEffect(
+    () => () => {
+      if (timeoutRef.current)
+        clearTimeout(timeoutRef.current);
+    },
+    []
+  );
 
   // debounced
   const onClickCb = React.useCallback(
     async (e) => {
       setClicked(true);
-      await onClick(e);
-      setTimeout(() => setClicked(false), 500);
+      try {
+        await onClick(e);
+      } finally {
+        if (timeoutRef.current)
+          clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(() => setClicked(false), 500);
+      }
     },
-    [setClicked, onClick]
+    [onClick]
   );
 
   return (

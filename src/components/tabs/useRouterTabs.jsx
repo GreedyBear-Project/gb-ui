@@ -12,7 +12,6 @@ import FallbackLoading from "../misc/FallbackLoading";
 export default function useRouterTabs({ routes, redirect, }) {
   const hLocation = useLocation();
   const resolvedPath = useResolvedPath("");
-  const activeKeyRef = React.useRef(null);
 
   const activeKey = React.useMemo(() => {
     const a = routes?.find(r => {
@@ -38,11 +37,6 @@ export default function useRouterTabs({ routes, redirect, }) {
           <NavLink
             tag={RRNavLink}
             to={location}
-            style={({isActive,}) => {
-              if (isActive)
-                activeKeyRef.current = key;
-                return undefined;
-            }}
           >
             <Title />
           </NavLink>

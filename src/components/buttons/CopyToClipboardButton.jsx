@@ -9,14 +9,28 @@ function CopyToClipboardButton({ id, text, children = null, tooltip = null, show
 
   // local state
   const [copied, setCopied] = React.useState(false);
+  const timeoutRef = React.useRef(null);
 
   const [, copyToClipboard] = useCopyToClipboard();
+
+  React.useEffect(
+    () => () => {
+      if (timeoutRef.current)
+        clearTimeout(timeoutRef.current);
+    },
+    []
+  );
 
   // callbacks
   const onCopy = () => {
     copyToClipboard(text);
     setCopied(true);
-    setTimeout(() => setCopied(false), tooltip?.timeout || 1000);
+    if (timeoutRef.current)
+      clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(
+      () => setCopied(false),
+      tooltip?.timeout || 1000
+    );
   };
 
   return (

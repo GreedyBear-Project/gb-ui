@@ -17,12 +17,23 @@ export default function PopupFormButton({
 
   // state
   const [popoverOpen, setPopoverOpen] = React.useState(false);
+  const closeTimeoutRef = React.useRef(null);
+
+  React.useEffect(
+    () => () => {
+      if (closeTimeoutRef.current)
+        clearTimeout(closeTimeoutRef.current);
+    },
+    []
+  );
 
   // callbacks
   const onFormSubmit = React.useCallback(() => {
-    setTimeout(() => setPopoverOpen(false), 400);
+    if (closeTimeoutRef.current)
+      clearTimeout(closeTimeoutRef.current);
+    closeTimeoutRef.current = setTimeout(() => setPopoverOpen(false), 400);
     onFormSuccess();
-  }, [setPopoverOpen, onFormSuccess]);
+  }, [onFormSuccess]);
 
   // vars
   const btnId = id || `popover-btn-${nanoid(4)}`;

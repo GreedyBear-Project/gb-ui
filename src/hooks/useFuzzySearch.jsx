@@ -13,8 +13,9 @@ export default function useFuzzySearch({ dataList, searchableKeys, }) {
   const [searchInput, setSearchInput] = React.useState("");
 
   // filter function
-  const updateItems = () =>
-    setItems(() =>
+  const updateItems = React.useCallback(
+    () =>
+      setItems(() =>
       searchInput
         ? // matched items
           matchSorter(dataList, searchInput, {
@@ -22,7 +23,9 @@ export default function useFuzzySearch({ dataList, searchableKeys, }) {
           })
         : // reset items list
           dataList
-    );
+      ),
+    [dataList, searchableKeys, searchInput]
+  );
 
   // debounced callback
   const debouncedSearch = useAsyncDebounce(updateItems, 500);
@@ -39,8 +42,7 @@ export default function useFuzzySearch({ dataList, searchableKeys, }) {
   // side effect that updates item if input `dataList` is changed
   React.useEffect(() => {
     updateItems();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dataList]);
+  }, [updateItems]);
 
   return [searchInput, onInputChange, items];
 }
