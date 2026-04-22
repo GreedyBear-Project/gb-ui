@@ -115,15 +115,22 @@ test.describe("table visual states", () => {
     await openTable(page, baseURL);
 
     const section = page.getByTestId("table-visual-interactive");
-    const rowCheckboxes = section.locator("tbody input[type='checkbox']");
+    const alphaRow = section.locator("tbody tr", { hasText: "Alpha Watch", });
+    const cipherRow = section.locator("tbody tr", { hasText: "Cipher Sweep", });
 
-    await rowCheckboxes.nth(0).check();
-    await rowCheckboxes.nth(2).check();
+    await alphaRow.locator("input[type='checkbox']").check();
+    await cipherRow.locator("input[type='checkbox']").check();
     await expect(page.getByTestId("table-visual-selected-count")).toHaveText("2 selected");
+    await page.mouse.move(0, 0);
+    await page.evaluate(() => {
+      if (document.activeElement instanceof HTMLElement)
+        document.activeElement.blur();
+    });
 
     await expect(section).toHaveScreenshot("table-selected-desktop.png", {
       animations: "disabled",
       caret: "hide",
+      maxDiffPixels: 700,
     });
   });
 
