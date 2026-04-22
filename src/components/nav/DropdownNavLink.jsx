@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink as RRNavLink } from "react-router-dom";
-import { DropdownItem } from "reactstrap";
 
 /**
  * @type {component}
@@ -10,13 +9,14 @@ export default function DropdownNavLink(props) {
   const { children, ...toPassProps } = props;
 
   return (
-    <DropdownItem
-      tag={RRNavLink}
-      to="#"
+    <RRNavLink
+      className={({ isActive, }) =>
+        `dropdown-item${isActive ? " active" : ""}`
+      }
       {...toPassProps}
     >
       {children}
-    </DropdownItem>
+    </RRNavLink>
 
   );
 }

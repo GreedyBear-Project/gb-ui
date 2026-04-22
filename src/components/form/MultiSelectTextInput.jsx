@@ -15,17 +15,31 @@ export default function MultiSelectTextInput(props) {
   const [inputValue, setInputValue] = React.useState("");
   const [inputList, setInputList] = React.useState(() => defaultElements || []);
 
-  const onChange = v => setInputList(v);
+  const onChange = React.useCallback(
+    (v) => {
+      const nextList = v || [];
+      setInputList(nextList);
+      onElementsChange(nextList.map((el) => el.value));
+    },
+    [onElementsChange]
+  );
   const onInputChange = v => setInputValue(v);
   const handleKeyDown = event => {
     if (!inputValue) return;
     switch (event.key) {
       case "Enter":
       case "Tab":
-        setInputList((prevInputList) => [
-          ...prevInputList,
-          { label: inputValue, value: inputValue, },
-        ]);
+        setInputList((prevInputList) => {
+          if (prevInputList.some((el) => el.value === inputValue))
+            return prevInputList;
+
+          const nextList = [
+            ...prevInputList,
+            { label: inputValue, value: inputValue, },
+          ];
+          onElementsChange(nextList.map((el) => el.value));
+          return nextList;
+        });
         setInputValue("");
         event.preventDefault();
         break;
@@ -33,13 +47,6 @@ export default function MultiSelectTextInput(props) {
         break;
     }
   };
-
-  
-
-  // fire onElementsChange to sync inputList with elements
-  React.useEffect(() => {
-    onElementsChange(inputList.map((el) => el.value));
-  }, [inputList, onElementsChange]);
 
   return (
     <ReactCreatableSelect

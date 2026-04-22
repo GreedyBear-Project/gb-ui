@@ -17,7 +17,7 @@ const SCROLL_STEP = 10;
 
 // Component
 export default function InfiniteScrollList({
-  data,
+  data = [],
   showSearch = true,
   searchableKeys = [],
   renderListItem,
@@ -26,6 +26,8 @@ export default function InfiniteScrollList({
   ...rest
 }) {
   // props
+  const dataLength = data.length;
+  const fetchTimeoutRef = React.useRef(null);
 
   // memo
   const keys = React.useMemo(
@@ -45,19 +47,37 @@ export default function InfiniteScrollList({
   // state
   const [state, setState] = React.useState({
     index: SCROLL_STEP,
-    hasMore: SCROLL_STEP < data.length,
+    hasMore: SCROLL_STEP < dataLength,
   });
+
+  React.useEffect(
+    () => () => {
+      if (fetchTimeoutRef.current)
+        clearTimeout(fetchTimeoutRef.current);
+    },
+    []
+  );
+
+  React.useEffect(() => {
+    setState((prevState) => ({
+      index: Math.min(Math.max(prevState.index, SCROLL_STEP), dataLength || SCROLL_STEP),
+      hasMore: prevState.index < dataLength,
+    }));
+  }, [dataLength]);
 
   // callbacks
   const fetchMoreData = React.useCallback(() => {
+    if (fetchTimeoutRef.current)
+      clearTimeout(fetchTimeoutRef.current);
+
     // load SCROLL_STEP number more list items
-    setTimeout(() => {
+    fetchTimeoutRef.current = setTimeout(() => {
       setState(({ index, }) => ({
         index: index + SCROLL_STEP,
-        hasMore: index < data.length,
+        hasMore: index < dataLength,
       }));
     }, 150);
-  }, [data, setState]);
+  }, [dataLength]);
 
   return (
     <Fade in timeout={200} {...rest}>

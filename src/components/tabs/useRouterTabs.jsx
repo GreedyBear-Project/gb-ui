@@ -3,7 +3,7 @@ Based on: https://codesandbox.io/embed/6brgz
 */
 
 import React from "react";
-import { NavLink, NavItem } from "reactstrap";
+import { NavItem } from "reactstrap";
 import { NavLink as RRNavLink, Route, Navigate, Routes, useLocation, useResolvedPath } from "react-router-dom";
 
 import FallbackLoading from "../misc/FallbackLoading";
@@ -12,15 +12,16 @@ import FallbackLoading from "../misc/FallbackLoading";
 export default function useRouterTabs({ routes, redirect, }) {
   const hLocation = useLocation();
   const resolvedPath = useResolvedPath("");
+  const localRoutes = routes || [];
 
   const activeKey = React.useMemo(() => {
-    const a = routes?.find(r => {
+    const a = localRoutes.find(r => {
       const loc1 = hLocation.pathname;
       const loc2 = `${resolvedPath.pathname}/${r.location}`.replaceAll("//", "");
       return loc1.includes(loc2);
     });
     return a?.key;
-  }, [routes, hLocation, resolvedPath]);
+  }, [localRoutes, hLocation.pathname, resolvedPath.pathname]);
 
   /**
    * Renders the reactstrap `NavItem`s. Note that reactstrap's `NavLink`
@@ -32,17 +33,18 @@ export default function useRouterTabs({ routes, redirect, }) {
    */
   const renderNavItems = React.useCallback(
     () =>
-      routes.map(({ key, Title, location, }) => (
+      localRoutes.map(({ key, Title, location, }) => (
         <NavItem key={`routertabs-${key}-navitem`}>
-          <NavLink
-            tag={RRNavLink}
+          <RRNavLink
+            className={({ isActive, }) => `nav-link${isActive ? " active" : ""}`}
             to={location}
+            end
           >
             <Title />
-          </NavLink>
+          </RRNavLink>
         </NavItem>
       )),
-    [routes]
+    [localRoutes]
   );
 
   /**
@@ -51,7 +53,7 @@ export default function useRouterTabs({ routes, redirect, }) {
   const renderRoutes = React.useCallback(
     () =>
       <Routes>
-        {routes.map(({ key, Component, location, }) => 
+        {localRoutes.map(({ key, Component, location, }) => 
           <Route
             key={`routertabs-${key}-route`}
             path={`${location}/*`}
@@ -62,15 +64,15 @@ export default function useRouterTabs({ routes, redirect, }) {
             }
           />
         )}
-      {redirect && routes.length &&
+      {redirect && localRoutes.length &&
         <Route
           key="routertabs-redirect"
           path="*"
-          element={<Navigate to={routes[0].location} />}
+          element={<Navigate to={localRoutes[0].location} />}
         />}
       </Routes>,
 
-    [routes, redirect]
+    [localRoutes, redirect]
   );
 
   return { activeKey, renderNavItems, renderRoutes, };

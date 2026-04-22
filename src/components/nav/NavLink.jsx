@@ -1,6 +1,5 @@
 import React from "react";
 import classnames from "classnames";
-import { NavLink as RSNavLink } from "reactstrap";
 import { NavLink as RRNavLink } from "react-router-dom";
 
 // constants
@@ -15,18 +14,20 @@ const type2ClassnameMap = {
 // component
 export default function NavLink({ type = "default", children, className = null, ...props }) {
   return (
-    <RSNavLink
-      tag={RRNavLink}
-      to="#"
-      className={classnames(
-        "text-lg-center",
-        type2ClassnameMap[type],
-        className
-      )}
+    <RRNavLink
+      className={({ isActive, }) =>
+        classnames(
+          "nav-link",
+          "text-lg-center",
+          type2ClassnameMap[type],
+          className,
+          { active: isActive, }
+        )
+      }
       {...props}
     >
       {children}
-    </RSNavLink>
+    </RRNavLink>
   );
 }
 
