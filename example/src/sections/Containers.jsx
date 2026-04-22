@@ -5,7 +5,7 @@ import {
   ContentSection,
   SmallInfoCard,
   Loader,
-  LoadingBoundary,
+  LoadingBoundary
 } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";

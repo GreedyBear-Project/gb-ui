@@ -25,7 +25,7 @@ import {
   PopupFormButton,
   ScrollToTopButton,
   SocialShareBtn,
-  SyncButton,
+  SyncButton
 } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";

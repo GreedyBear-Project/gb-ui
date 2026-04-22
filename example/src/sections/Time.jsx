@@ -4,7 +4,7 @@ import {
   ContentSection,
   ElasticTimePicker,
   DateHoverable,
-  useTimePickerStore,
+  useTimePickerStore
 } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";

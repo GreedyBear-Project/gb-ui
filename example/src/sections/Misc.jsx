@@ -7,7 +7,7 @@ import {
   Details,
   Toaster,
   UserBubble,
-  FallBackLoading,
+  FallBackLoading
 } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";

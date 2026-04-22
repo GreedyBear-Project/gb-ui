@@ -22,7 +22,7 @@ import {
   MultiSelectTextInput,
   InputCheckBox,
   CustomJsonInput,
-  NewJsonRenderer,
+  NewJsonRenderer
 } from "@greedybear/gb-ui";
 
 // constants

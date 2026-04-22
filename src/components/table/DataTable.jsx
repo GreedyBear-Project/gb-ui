@@ -7,14 +7,14 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
   getSortedRowModel,
-  getPaginationRowModel,
+  getPaginationRowModel
 } from "@tanstack/react-table";
 import { FaSort, FaSortUp, FaSortDown } from "react-icons/fa";
 
 import {
   makeTableArgs,
   defaultConfig,
-  defaultInitialState,
+  defaultInitialState
 } from "./utils";
 import Paginator from "./Paginator";
 

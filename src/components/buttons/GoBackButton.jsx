@@ -40,7 +40,7 @@ export default function GoBackButton({ onlyIcon = true, ...restProps }) {
       innerRef={backArrowRef}
       onClick={() => navigate(-1)}
       Icon={BackIcon}
-      style={{ border: "none", padding: "0.1rem 0.2rem" }}
+      style={{ border: "none", padding: "0.1rem 0.2rem", }}
       color="accent-2"
       className="btn-sm"
       {...restProps}

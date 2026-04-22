@@ -9,13 +9,13 @@ import {
   SelectOptionsFilter,
   DataTable,
   TableHintIcon,
-  createUseRowDisabledHook,
+  createUseRowDisabledHook
 } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
 import {
   tableFixtureRows,
-  disabledRowFixtureRows,
+  disabledRowFixtureRows
 } from "./tableFixtures";
 
 const ownerOptions = ["Atlas", "Beacon", "Cypher"];
