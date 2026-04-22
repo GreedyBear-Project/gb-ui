@@ -7,6 +7,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [react({ include: /\.(jsx?|tsx?)$/ })],
+  resolve: {
+    alias: {
+      "@greedybear/gb-ui": path.resolve(__dirname, "../src/index.js"),
+    },
+  },
   server: {
     fs: {
       allow: [".."],
