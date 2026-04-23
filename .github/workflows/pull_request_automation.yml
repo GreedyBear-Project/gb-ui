@@ -28,7 +28,7 @@ jobs:
           npm
     - name: Install dependencies
       run: |
-        npm i --no-optional --no-audit --no-fund
+        npm ci --no-audit --no-fund
       working-directory: .
     - name: Lint with eslint
       run: |
