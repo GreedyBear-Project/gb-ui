@@ -471,9 +471,12 @@ function DataTable({
                       maxWidth: legacyColumn?.maxWidth ? `${legacyColumn.maxWidth}px` : undefined,
                     }}
                   >
+                    {/* role, tabIndex, and click handler are applied together only when sortable */}
+                    {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
                     <div
                       className="text-center"
                       role={canSort ? "button" : undefined}
+                      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                       tabIndex={canSort ? 0 : undefined}
                       onClick={canSort ? header.column.getToggleSortingHandler() : undefined}
                       onKeyDown={

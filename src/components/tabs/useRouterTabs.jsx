@@ -12,7 +12,7 @@ import FallbackLoading from "../misc/FallbackLoading";
 export default function useRouterTabs({ routes, redirect, }) {
   const hLocation = useLocation();
   const resolvedPath = useResolvedPath("");
-  const localRoutes = routes || [];
+  const localRoutes = React.useMemo(() => routes || [], [routes]);
 
   const activeKey = React.useMemo(() => {
     const a = localRoutes.find(r => {
