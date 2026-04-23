@@ -37,7 +37,8 @@ function useQueryParamsTable() {
 
   // Update query params to match table state and navigate to a page with the new params
   React.useEffect(() => {
-    const search = `?${new URLSearchParams(params).toString()}`;
+    const qs = new URLSearchParams(params).toString();
+    const search = qs ? `?${qs}` : "";
     if (search !== location.search)
       navigate({ search, }, { replace: true, });
   }, [navigate, params, location.search]);
