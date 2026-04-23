@@ -5,7 +5,7 @@ import {
   ContentSection,
   HoverDropdown,
   DropdownNavLink,
-  NavLink,
+  NavLink
 } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";

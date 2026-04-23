@@ -13,7 +13,7 @@ import {
   MdDelete,
   MdInfo,
   MdModeEdit,
-  MdVisibility,
+  MdVisibility
 } from "react-icons/md";
 import { Form, Formik } from "formik";
 
@@ -25,7 +25,7 @@ import {
   PopupFormButton,
   ScrollToTopButton,
   SocialShareBtn,
-  SyncButton,
+  SyncButton
 } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";
@@ -116,29 +116,27 @@ export default function Buttons(props) {
               titlePlacement="top"
               popOverPlacement="top"
               Icon={MdModeEdit}
-              Form={({ onFormSubmit }) => (
+              Form={({ onFormSubmit, }) => (
                 <Formik
-                  initialValues={{ name: "" }}
+                  initialValues={{ name: "", }}
                   onSubmit={onFormSubmit}
                 >
-                  {(formik) => (
-                    <Form className="p-2 ">
-                      <FormGroup>
-                        <Label className="required" for="email">
-                          Name
-                        </Label>
-                        <Input
-                          autoFocus
-                          type="text"
-                          name="name"
-                          size="sm"
-                        />
-                      </FormGroup>
-                      <Button type="submit" color="darker" className="btn-sm">
-                        Submit
-                      </Button>
-                    </Form>
-                  )}
+                  <Form className="p-2 ">
+                    <FormGroup>
+                      <Label className="required" for="email">
+                        Name
+                      </Label>
+                      <Input
+                        autoFocus
+                        type="text"
+                        name="name"
+                        size="sm"
+                      />
+                    </FormGroup>
+                    <Button type="submit" color="darker" className="btn-sm">
+                      Submit
+                    </Button>
+                  </Form>
                 </Formik>
               )}
               onFormSuccess={() => alert("onFormSuccess callback")}

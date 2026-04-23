@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {
   Row,
@@ -17,17 +16,18 @@ import useFuzzySearch from "../../hooks/useFuzzySearch";
 const SCROLL_STEP = 10;
 
 // Component
-export default function InfiniteScrollList(props) {
+export default function InfiniteScrollList({
+  data = [],
+  showSearch = true,
+  searchableKeys = [],
+  renderListItem,
+  genListKeyProp,
+  children = null,
+  ...rest
+}) {
   // props
-  const {
-    data,
-    showSearch,
-    searchableKeys,
-    renderListItem,
-    genListKeyProp,
-    children,
-    ...rest
-  } = props;
+  const dataLength = data.length;
+  const fetchTimeoutRef = React.useRef(null);
 
   // memo
   const keys = React.useMemo(
@@ -47,19 +47,37 @@ export default function InfiniteScrollList(props) {
   // state
   const [state, setState] = React.useState({
     index: SCROLL_STEP,
-    hasMore: SCROLL_STEP < data.length,
+    hasMore: SCROLL_STEP < dataLength,
   });
+
+  React.useEffect(
+    () => () => {
+      if (fetchTimeoutRef.current)
+        clearTimeout(fetchTimeoutRef.current);
+    },
+    []
+  );
+
+  React.useEffect(() => {
+    setState((prevState) => ({
+      index: Math.min(Math.max(prevState.index, SCROLL_STEP), dataLength || SCROLL_STEP),
+      hasMore: prevState.index < dataLength,
+    }));
+  }, [dataLength]);
 
   // callbacks
   const fetchMoreData = React.useCallback(() => {
+    if (fetchTimeoutRef.current)
+      clearTimeout(fetchTimeoutRef.current);
+
     // load SCROLL_STEP number more list items
-    setTimeout(() => {
+    fetchTimeoutRef.current = setTimeout(() => {
       setState(({ index, }) => ({
         index: index + SCROLL_STEP,
-        hasMore: index < data.length,
+        hasMore: index < dataLength,
       }));
     }, 150);
-  }, [data, setState]);
+  }, [dataLength]);
 
   return (
     <Fade in timeout={200} {...rest}>
@@ -117,17 +135,3 @@ export default function InfiniteScrollList(props) {
   );
 }
 
-InfiniteScrollList.propTypes = {
-  data: PropTypes.array.isRequired,
-  showSearch: PropTypes.bool,
-  searchableKeys: PropTypes.array,
-  renderListItem: PropTypes.func.isRequired,
-  genListKeyProp: PropTypes.func.isRequired,
-  children: PropTypes.node,
-};
-
-InfiniteScrollList.defaultProps = {
-  showSearch: true,
-  searchableKeys: [],
-  children: null,
-};

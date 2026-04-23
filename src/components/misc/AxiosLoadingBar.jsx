@@ -1,14 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 import LoadingBar from "react-top-loading-bar";
 
-export default function AxiosLoadingBar({ axiosInstance, color, ...rest }) {
+export default function AxiosLoadingBar({ axiosInstance, color = "#9441b7", ...rest }) {
   // ref
   const ref = React.useRef(null);
 
   React.useEffect(() => {
     // Add a request interceptor
-    axiosInstance.interceptors.request.use(
+    const requestInterceptorId = axiosInstance.interceptors.request.use(
       (config) => {
         if (ref?.current && config.certegoUIenableProgressBar)
           ref.current.continuousStart();
@@ -18,29 +17,25 @@ export default function AxiosLoadingBar({ axiosInstance, color, ...rest }) {
     );
 
     // Add a response interceptor
-    axiosInstance.interceptors.response.use(
+    const responseInterceptorId = axiosInstance.interceptors.response.use(
       (response) => {
         if (ref?.current && response.config.certegoUIenableProgressBar)
           ref.current.complete();
         return response;
       },
       (error) => {
-        if (ref?.current && error.response.config.certegoUIenableProgressBar)
+        if (ref?.current && error?.response?.config?.certegoUIenableProgressBar)
           ref.current.complete();
         return Promise.reject(error);
       }
     );
+
+    return () => {
+      axiosInstance.interceptors.request.eject(requestInterceptorId);
+      axiosInstance.interceptors.response.eject(responseInterceptorId);
+    };
   }, [axiosInstance]);
 
   return <LoadingBar shadow ref={ref} color={color} {...rest} />;
 }
 
-AxiosLoadingBar.propTypes = {
-  axiosInstance: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-    .isRequired,
-  color: PropTypes.string,
-};
-
-AxiosLoadingBar.defaultProps = {
-  color: "#9441b7",
-};

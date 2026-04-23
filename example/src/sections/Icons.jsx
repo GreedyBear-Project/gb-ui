@@ -4,7 +4,7 @@ import {
   ContentSection,
   ArrowToggleIcon,
   BooleanIcon,
-  LinkOpenViewIcon,
+  LinkOpenViewIcon
 } from "@greedybear/gb-ui";
 
 import ComponentAsExample from "./ComponentAsExample";

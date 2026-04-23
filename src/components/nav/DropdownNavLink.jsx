@@ -1,7 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { NavLink as RRNavLink } from "react-router-dom";
-import { DropdownItem } from "reactstrap";
 
 /**
  * @type {component}
@@ -11,18 +9,15 @@ export default function DropdownNavLink(props) {
   const { children, ...toPassProps } = props;
 
   return (
-    <DropdownItem
-      tag={RRNavLink}
-      to="#"
+    <RRNavLink
+      className={({ isActive, }) =>
+        `dropdown-item${isActive ? " active" : ""}`
+      }
       {...toPassProps}
     >
       {children}
-    </DropdownItem>
+    </RRNavLink>
 
   );
 }
 
-DropdownNavLink.propTypes = {
-  children: PropTypes.node.isRequired,
-  ...RRNavLink.propTypes,
-};

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classnames from "classnames";
 import { Nav } from "reactstrap";
 
@@ -21,11 +20,10 @@ import useRouterTabs from "./useRouterTabs";
  * ```
  *
  */
-function RouterTabs(props) {
+function RouterTabs({ routes, className = undefined, overflow = false, redirect = true, children = null, extraNavComponent = null, ...rest }) {
   // props
-  const { routes, className, overflow, redirect, children, extraNavComponent, ...rest } = props;
 
-  const navClasses = classnames("nav-tabs", className);
+  const navClasses = classnames("nav-tabs", { "overflow-auto": overflow, }, className);
 
   // call hook
   const { renderNavItems, renderRoutes, } = useRouterTabs({
@@ -38,35 +36,11 @@ function RouterTabs(props) {
       <Nav tabs className={navClasses} {...rest}>
         {renderNavItems()}
         {extraNavComponent}
+        {children}
       </Nav>
       <div className="mt-3">{renderRoutes()}</div>
     </>
   );
 }
-
-RouterTabs.propTypes = {
-  routes: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired,
-      Title: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
-      Component: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-        .isRequired,
-    })
-  ).isRequired,
-  redirect: PropTypes.bool,
-  overflow: PropTypes.bool,
-  className: PropTypes.string,
-  children: PropTypes.node,
-  extraNavComponent: PropTypes.node,
-};
-
-RouterTabs.defaultProps = {
-  redirect: true,
-  overflow: false,
-  className: undefined,
-  children: null,
-  extraNavComponent: null,
-};
 
 export default RouterTabs;

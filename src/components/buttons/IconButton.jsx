@@ -1,14 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Button, UncontrolledTooltip } from "reactstrap";
 import { nanoid } from "nanoid";
 
-function IconButton(props) {
+function IconButton({ id = undefined, title = undefined, titlePlacement = "right-start", Icon, ...rest }) {
   // props
-  const { id, title, titlePlacement, Icon, ...rest } = props;
 
   // vars
-  const btnId = id || `iconbtn-${nanoid(4)}`;
+  const btnId = React.useMemo(() => id || `iconbtn-${nanoid(4)}`, [id]);
 
   return (
     <Button id={btnId} type="button" {...rest}>
@@ -25,18 +23,5 @@ function IconButton(props) {
     </Button>
   );
 }
-
-IconButton.propTypes = {
-  id: PropTypes.string,
-  title: PropTypes.string,
-  titlePlacement: PropTypes.string,
-  Icon: PropTypes.func.isRequired,
-};
-
-IconButton.defaultProps = {
-  id: undefined,
-  title: undefined,
-  titlePlacement: "right-start",
-};
 
 export default IconButton;

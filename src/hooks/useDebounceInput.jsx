@@ -9,6 +9,5 @@ export default function useDebounceInput(inputValue, delay, setFunction) {
       setFunction(inputValue);
     }, delay);
     return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inputValue]);
+  }, [inputValue, delay, setFunction]);
 }

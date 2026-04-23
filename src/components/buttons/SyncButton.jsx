@@ -1,23 +1,35 @@
 import React from "react";
 import classnames from "classnames";
-import PropTypes from "prop-types";
 import { UncontrolledTooltip, Spinner } from "reactstrap";
 import { MdSync } from "react-icons/md";
 
-export default function SyncButton(props) {
-  const { onClick, className, title, ...restProps } = props;
+export default function SyncButton({ onClick, className = null, title = "Sync with server", ...restProps }) {
 
   // state
   const [wasClicked, setClicked] = React.useState(false);
+  const timeoutRef = React.useRef(null);
+
+  React.useEffect(
+    () => () => {
+      if (timeoutRef.current)
+        clearTimeout(timeoutRef.current);
+    },
+    []
+  );
 
   // debounced
   const onClickCb = React.useCallback(
     async (e) => {
       setClicked(true);
-      await onClick(e);
-      setTimeout(() => setClicked(false), 500);
+      try {
+        await onClick(e);
+      } finally {
+        if (timeoutRef.current)
+          clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(() => setClicked(false), 500);
+      }
     },
-    [setClicked, onClick]
+    [onClick]
   );
 
   return (
@@ -34,13 +46,3 @@ export default function SyncButton(props) {
   );
 }
 
-SyncButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  className: PropTypes.string,
-  title: PropTypes.string,
-};
-
-SyncButton.defaultProps = {
-  className: null,
-  title: "Sync with server",
-};

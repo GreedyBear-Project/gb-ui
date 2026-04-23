@@ -38,7 +38,7 @@ function AppFooter() {
           <Col className="text-muted small standout">
             <a
               className="text-muted link"
-              href={`https://github.com/GreedyBear-Project/gb-ui`}
+              href="https://github.com/GreedyBear-Project/gb-ui"
               target="_blank"
               rel="noreferrer noopener"
             >

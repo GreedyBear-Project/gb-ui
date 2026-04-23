@@ -1,16 +1,56 @@
 import React from "react";
-import useAxios from "axios-hooks";
-import PropTypes from "prop-types";
+import axios from "axios";
 import { Button } from "reactstrap";
 import { MdClear } from "react-icons/md";
 
 import Select from "./Select";
 import Loader from "../containers/Loader";
 
-export default function AsyncSelect(props) {
-  const { url, selectorFn, mapFn, onClear, ...selectProps } = props;
-  // API
-  const [{ data, loading, error, }] = useAxios(url);
+export default function AsyncSelect({
+  url,
+  selectorFn = (x) => x,
+  mapFn = (x) => ({ label: x.id, value: x.id, }),
+  onClear = undefined,
+  ...selectProps
+}) {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    const controller = new AbortController();
+    let isMounted = true;
+
+    setLoading(true);
+    setError(null);
+
+    axios
+      .get(url, { signal: controller.signal, })
+      .then((response) => {
+        if (!isMounted)
+          return;
+        setData(response.data);
+      })
+      .catch((requestError) => {
+        if (!isMounted)
+          return;
+
+        if (requestError?.code === "ERR_CANCELED")
+          return;
+
+        setError(requestError);
+      })
+      .finally(() => {
+        if (isMounted)
+          setLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, [url]);
+
   const choices = React.useMemo(
     () => (data ? selectorFn(data).map(mapFn) : []),
     [data, selectorFn, mapFn]
@@ -35,18 +75,3 @@ export default function AsyncSelect(props) {
   );
 }
 
-AsyncSelect.defaultProps = {
-  selectorFn: (x) => x,
-  mapFn: (x) => ({
-    label: x.id,
-    value: x.id,
-  }),
-  onClear: undefined,
-};
-
-AsyncSelect.propTypes = {
-  url: PropTypes.string.isRequired,
-  selectorFn: PropTypes.func,
-  mapFn: PropTypes.func,
-  onClear: PropTypes.func,
-};
