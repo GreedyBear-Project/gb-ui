@@ -6,10 +6,21 @@ import Loader from "../components/containers/Loader";
 const noop = (x) => x;
 
 function useAxiosComponentLoader(axiosOptions, modifier = noop) {
-  const requestConfig = React.useMemo(
-    () => (typeof axiosOptions === "string" ? { url: axiosOptions, } : axiosOptions),
-    [axiosOptions]
-  );
+  // Depend on primitive keys, not axiosOptions itself: callers commonly pass a
+  // fresh object literal every render, which would otherwise retrigger the
+  // effect unboundedly.
+  const isUrlString = typeof axiosOptions === "string";
+  const url = isUrlString ? axiosOptions : axiosOptions?.url;
+  const method = isUrlString ? undefined : axiosOptions?.method;
+  const paramsKey = isUrlString
+    ? ""
+    : JSON.stringify(axiosOptions?.params ?? null);
+
+  // Ref lets the effect read the full, latest options (headers, data, etc.)
+  // without pulling the unstable object reference into the dep list.
+  const axiosOptionsRef = React.useRef(axiosOptions);
+  axiosOptionsRef.current = axiosOptions;
+
   const [requestKey, setRequestKey] = React.useState(0);
   const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
@@ -21,6 +32,12 @@ function useAxiosComponentLoader(axiosOptions, modifier = noop) {
 
     setLoading(true);
     setError(null);
+
+    const latestOptions = axiosOptionsRef.current;
+    const requestConfig =
+      typeof latestOptions === "string"
+        ? { url: latestOptions, }
+        : latestOptions;
 
     axios({
       ...requestConfig,
@@ -47,7 +64,7 @@ function useAxiosComponentLoader(axiosOptions, modifier = noop) {
       isMounted = false;
       controller.abort();
     };
-  }, [requestConfig, requestKey]);
+  }, [isUrlString, url, method, paramsKey, requestKey]);
 
   const refetch = React.useCallback(() => {
     setRequestKey((currentKey) => currentKey + 1);
