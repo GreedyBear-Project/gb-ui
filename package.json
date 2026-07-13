@@ -98,6 +98,6 @@
     "react-router-dom": "^7.18.0",
     "reactstrap": "^9.2.3",
     "sass": "^1.100.0",
-    "vitest": "^4.1.8"
+    "vitest": "^4.1.10"
   }
 }
