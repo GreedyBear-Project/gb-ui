@@ -1,6 +1,6 @@
 {
   "name": "@greedybear/gb-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "GreedyBear frontend components library (react.js, reactstrap, etc)",
   "author": "GreedyBear",
   "license": "MIT",
