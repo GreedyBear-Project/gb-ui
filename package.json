@@ -57,7 +57,7 @@
     "@microlink/react-json-view": "^1.31.22",
     "@tanstack/react-table": "^8.21.3",
     "classnames": "^2.5.1",
-    "date-fns": "^2.30.0",
+    "date-fns": "^4.4.0",
     "match-sorter": "^6.4.0",
     "nanoid": "^6.0.0",
     "react-compound-slider": "^3.4.0",
